@@ -1,0 +1,52 @@
+eval:
+    num_eval_episodes: 30
+    train_horizon: 100
+    test_horizon: 100
+    warm_up_steps: [0]
+    warm_up_pure_random: False
+
+task:
+    task_name: 'MAB'
+    exp_name: '16env_20d'
+    data_name: '4env_20d'
+    gen_method: 'Perturb'
+    state_dim: 1
+    act_value_dim: 20
+    act_output_dim: 20
+    action_type: 'discrete'
+    params: {'seed': 123,
+             'err_std': 0.2,
+             'finite_envs_num': 16
+             }
+          
+model:
+    model_type: 'ICL'
+    hidden_size: 256
+    n_layer: 12
+    dropout: 0.05
+    window_len: 100
+    n_head: 16
+    need_time_embed: False
+
+train:
+    batch_size: 64
+    num_train_iters: 130
+    num_steps_per_iter: 500
+    train_data_horizon: 100
+    loss_fn: 'CE_pure'
+    warmup_steps: 1000
+    lr: 0.0001
+    weight_decay: 0.0001
+    seed: 1123
+    eval_last_regs_len: 10
+    curr: {'unit_inc': 10,
+          'repeat_len': 5,
+           'end_iter': 100}
+    FT_time: 51
+
+
+wandb:
+    name: "MAB_4env_20d"
+
+multigpu:
+    dist_backend: "nccl"
