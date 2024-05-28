@@ -1,6 +1,6 @@
 # Understand Transformer for Sequential Decision Making
 
-This repository contains all the code used in the paper: "Understanding the Training and Generalization of Pretrained Transformer for Sequential Decision Making".
+This repository contains all the code used in the paper: ["Understanding the Training and Generalization of Pretrained Transformer for Sequential Decision Making"](https://www.arxiv.org/abs/2405.14219).
 
 
 ## Usage
